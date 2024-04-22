@@ -45,13 +45,16 @@ public String toString() {
 }
 ```
 
-Koden nedan hämtar alla objekt från JSON-listan och lägger till dem i bergslistan.
+Koden nedan hämtar alla objekt från JSON-listan och lägger till dem i bergslistan och
+uppdaterar sedan recyclerAdapter.
 ```
 Type type = new TypeToken<ArrayList<Mountain>>() {}.getType();
 ArrayList<Mountain> listOfMountains = gson.fromJson(json, type);
+
+recViewAdapter.updateAdapter(listOfMountains);
 ```
 
-Detta är en metod för att uppdatera recyclerView med de nya objekten.
+Detta är en metod för att uppdatera recyclerAdapter med de nya objekten.
 ```
 public void updateAdapter(ArrayList<Mountain> newItems){
     items.addAll(newItems);
